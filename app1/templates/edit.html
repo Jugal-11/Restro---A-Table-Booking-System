@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="hero-wrap" style="background-image: url({% static 'images/menu-1.jpg' %});">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
+      <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+        <div class="text">
+          <h1 class="mb-4 bread">BOOKING TABLE</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="ftco-section">
+  <div class="container">
+    <div class="row d-flex">
+      <!-- --------Left --------- -->
+      <div class="col-md-6">
+        <p class="h4">Order By : {{ table.usereamil }}</p>
+        <p class="h4">Table No: {{ table.table_no }}</p>
+      </div>
+      <!-- --------Right --------- -->
+      <div class="col-md-6">
+        <p class="h4">Booking Date: {{ table.date }}</p>
+        <p class="h4">Booking Time: {{ table.time1 }}</p>
+        <form method="POST" action="/approve/{{ table.id }}/">
+          {% csrf_token %}
+          <select name="booked" class="form-select mb-3">
+            <option selected disabled>Booking Status</option>
+            <option name="true" value="True">Approve</option>
+            <option name="false" value="False">Reject</option>
+          </select>
+          <input type="submit" class="btn btn-primary" value="Book Now">
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+{% if msg %}
+<script>alert('{{msg}}')</script>
+{% endif %}
+{% endblock %}
+
+
+

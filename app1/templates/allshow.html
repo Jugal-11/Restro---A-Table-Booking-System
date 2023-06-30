@@ -1,0 +1,64 @@
+{% extends 'basechef.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+  </head>
+
+<div class="hero-wrap" style="background-image: url({% static 'images/menu-5.jpg' %});">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
+            <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+                <div class="text">
+
+                    <h1 class="mb-4 bread">List of Users</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="ftco-section">
+    <div class="container">
+        <a href="/account_status/" class="btn btn-primary mb-3 mt-3">Account Status</a>
+        <div class="row d-flex">
+            <div class="col-md-12 d-flex align-self-stretch ftco-animate">
+
+                <table class="table table-hover" id="myTable" style="width:100%;">
+                    <thead>
+                        <tr>
+                            <th scope="col">Table No</th>
+                            <th scope="col">Customer Email</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in all %}
+                        <tr>
+                            <th scope="row">{{i.table_no}}</th>
+                            <td>{{i.usereamil}}</td>
+                            <td>{{i.date}}</td>
+                            <td>{{i.time1}}mdo</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+
+            <!-- <script>
+
+                $(document).ready(function () {
+
+                    $('#myTable').DataTable();
+
+                });
+
+            </script> -->
+            </div>
+        </div>
+ 
+    </div>
+</section>
+{% endblock %}

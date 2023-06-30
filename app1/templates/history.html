@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="hero-wrap" style="background-image: url({% static 'images/menu-4.jpg' %});">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
+            <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+                <div class="text">
+
+                    <h1 class="mb-4 bread">All booking Data</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row d-flex">
+
+            <div class="col-md-12 d-flex align-self-stretch ftco-animate">
+
+                <table class="table table-hover">
+                    <thead>
+                        <!-- <tr>
+                            <th scope="col">{{Table_No}}</th>
+                            <th scope="col">{{Booking_Date}}</th>
+                            <th scope="col">{{Booking_Time}}</th>
+                        </tr> -->
+                        <tr>
+                            <th scope="col">Table No</th>
+                            <th scope="col">Booking Date</th>
+                            <th scope="col">Booking Time</th>
+                            <th scope="col">Booking</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in table %}
+                        <tr>
+                            <th scope="row">{{i.table_no}}</th>
+                            <td>{{i.date}}</td>
+                            <td>{{i.time1}}</td>
+                            {% if i.booked is True %}
+                            <td>Approved</td>
+                            {% else %}
+                            <td>Pending</td>
+                            {% endif %}
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

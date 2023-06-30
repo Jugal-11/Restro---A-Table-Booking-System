@@ -1,0 +1,10 @@
+<form class="btn btn-primary" method="POST">
+    {% csrf_token %}
+    <center>
+      <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_qDwTmKnksUVsaC"
+      data-amount="{{ razor }}" data-currency="INR" data-buttontext="hello"
+      data-name="" data-description="Table Booking"
+      data-image="https://example.com/your_logo.jpg" data-prefill.name="PC"
+      data-prefill.email="" data-theme.color="#F37254"></script>
+    </center>
+  </form>
